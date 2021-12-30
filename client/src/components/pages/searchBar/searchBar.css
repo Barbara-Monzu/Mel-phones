@@ -1,0 +1,28 @@
+.search-input {
+    width: 50%;
+    padding: 12px 24px;
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    color: #575756;
+    background-color: transparent;
+    border-radius: 50px;
+    border: 2px solid #245f5a;
+    margin: 20px;
+  }
+  
+  .search-input2 {
+    width: 20%;
+    padding: 12px 24px;
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    color: #575756;
+    background-color: transparent;
+    border-radius: 50px;
+    border: 2px solid #245f5a;
+    margin: 10px;
+  }
+  

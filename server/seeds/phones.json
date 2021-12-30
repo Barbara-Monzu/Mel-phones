@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "name": "iPhone 10",
+    "manufacturer": "Apple",
+    "description": "Pantalla Super Retina HD",
+    "color": "Negro",
+    "price": 769,
+    "imageFileName": "https://images.unsplash.com/photo-1580418696996-4f391b748a0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
+    "screen": "5.8-inch IPS",
+    "processor": "A10 Fusion",
+    "ram": 2
+  },
+  {
+    "id": 1,
+    "name": "Samsung Galaxy",
+    "manufacturer": "Samsung",
+    "description": "Pantalla Super Retina HD",
+    "color": "Gris",
+    "price": 450.99,
+    "imageFileName": "https://images.unsplash.com/photo-1597762470488-3877b1f538c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+    "screen": "5.8-inch IPS",
+    "processor": "A10 Fusion",
+    "ram": 4
+  },
+  {
+    "id": 2,
+    "name": "Xiaomi XS",
+    "manufacturer": "Xiaomi",
+    "description": "Pantalla Super Retina HD",
+    "color": "Blanco",
+    "price": 1200.45,
+    "imageFileName": "https://images.unsplash.com/photo-1624434207284-727cf0e6ea8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    "screen": "5.8-inch IPS",
+    "processor": "A10 Fusion",
+    "ram": 6
+  }
+]
