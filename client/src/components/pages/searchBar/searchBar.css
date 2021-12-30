@@ -1,28 +1,29 @@
 .search-input {
     width: 50%;
-    padding: 12px 24px;
+    padding: 8px 10px;
     background-color: transparent;
     transition: transform 250ms ease-in-out;
     font-size: 14px;
     line-height: 18px;
-    color: #575756;
+    color: #212529;
     background-color: transparent;
     border-radius: 50px;
-    border: 2px solid #245f5a;
-    margin: 20px;
+    border: 2px solid #212529;
+    margin: 10px;
+    
   }
   
   .search-input2 {
-    width: 20%;
-    padding: 12px 24px;
+    
+    padding: 8px 10px;
     background-color: transparent;
     transition: transform 250ms ease-in-out;
     font-size: 14px;
     line-height: 18px;
-    color: #575756;
+    color: #212529;
     background-color: transparent;
     border-radius: 50px;
-    border: 2px solid #245f5a;
+    border: 2px solid #212529;
     margin: 10px;
   }
   

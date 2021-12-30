@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import { Modal, Button, Spinner } from 'react-bootstrap'
+import { Modal, Button, Spinner, Container, Col } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import PhonesService from '../../../services/phones.service'
 import { Link } from 'react-router-dom'
@@ -18,6 +18,8 @@ const DetailsPhone = () => {
 
     const [phone, setPhone] = useState([])
     const [modal, setModal] = useState(false)
+    const [modalBuy, setModalBuy] = useState(false)
+
 
     useEffect(() => {
         getDetails()
@@ -38,6 +40,15 @@ const DetailsPhone = () => {
         setModal(false)
     }
 
+    const openModalBuy = () => {
+        addPhone(phone)
+        setModalBuy(true)
+    }
+
+
+
+
+
 
 
     return (
@@ -45,32 +56,38 @@ const DetailsPhone = () => {
             {!phone ? (<Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
             </Spinner>)
-                : (<div className="mt-5 container">
+                : (<Container className="mt-5 container">
                     <div className="row">
-                        <div className="my-5 mx-5 col">
+                        <Col className="mt-5 mx-5" xs={{ order: 'last' }}>
 
-                            <h4>Información sobre el producto</h4>
-                            <p>{phone?.name}</p>
-                            <p>{phone?.color}</p>
-                            <p>{phone?.description}</p>
-                            <p>{phone?.price?.toFixed(2)} €</p>
-                            <h4>Especificaciones técnicas</h4>
-                            <p>{phone?.screen}</p>
-                            <p>{phone?.processor}</p>
-                            <p>{phone?.ram}</p>
-                            <p>{phone?.manufacturer}</p>
-                            <Button variant="warning container" onClick={() => addPhone(phone)}>Comprar</Button>
-                            <Button variant="warning container" onClick={() => openModal()}>Editar</Button>
-                            <Button as={Link} to={'/catalog'} >Volver</Button>
+                            <h4><strong>Información sobre el producto</strong></h4>
+                            <p><strong>Name: </strong>{phone?.name}</p>
+                            <p><strong>Manufacturer: </strong>{phone?.manufacturer}</p>
+                            <p><strong>Color: </strong>{phone?.color}</p>
+                            <p><strong>Descrption: </strong>{phone?.description}</p>
+                            <p><strong>Price: </strong>{phone?.price?.toFixed(2)} €</p>
+                            <p><strong>Screen: </strong>{phone?.screen}</p>
+                            <p><strong>Processor: </strong>{phone?.processor}</p>
+                            <p><strong>Ram: </strong>{phone?.ram}</p>
+                            <h4><strong>Free shipping</strong></h4>
 
-                        </div>
+                            <Button className="text-center mt-2" as={Link} to={'/catalog'} variant="dark">Volver</Button>
 
-                        <img className="col" src={phone?.imageFileName} style={{ width: '200px', height: '250px' }} alt="" />
-
+                        </Col>
+                        <Col className="my-3 mb-5">
+                            <Container className="text-center">
+                                <img className=" my-3" src={phone?.imageFileName} style={{ width: '300px', height: '350px', objectFit: "cover" }} alt="" />
+                                <Button variant="warning" className="mt-3 text-center mx-1" style={{ width: '250px' }} onClick={() => openModalBuy()}>Buy
+                                    <img style={{ width: '20px', height: '20px' }} src="https://img.icons8.com/ios/50/000000/shopping-cart.png" alt="cart" />
+                                </Button>
+                                <Button variant="success" className="mt-3 text-center mx-1" style={{ width: '250px' }} onClick={() => openModal()}>Edit</Button>
+                                <Button variant="secondary" className="mt-3 text-center mx-1" style={{ width: '250px' }} onClick={() => openModal()}>Review</Button>
+                            </Container>
+                        </Col>
 
                     </div>
 
-                </div>
+                </Container>
                 )
             }
 
@@ -85,6 +102,21 @@ const DetailsPhone = () => {
                 </Modal.Body>
 
             </Modal>
+
+            <Modal show={modalBuy} backdrop="static" onHide={closeModal}>
+
+                <Modal.Header closeButton>
+                    <Modal.Title>¿Do you want to continue shopping?</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                    <Button as={Link} to={'/catalog'} variant="secondary" className="mt-3" style={{ width: '300px' }}>Yes</Button>
+                    <Button as={Link} to={'/cart'} variant="secondary" className="mt-3" style={{ width: '300px' }}>Go to pay</Button>
+                </Modal.Body>
+
+            </Modal>
+
+
 
         </>
     )

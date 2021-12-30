@@ -32,13 +32,14 @@ const SearchBar = (props) => {
 			<div className="container">
 				<input className="search-input" type="search" placeholder="Search by name..." name="search" onChange={handleSearch} />
 
-				<label for="price">By price: </label>
-				<select class="search-input2" id="price" name="price" onChange={handleSelect}>
-					<option value=''>Price</option>
-					<option value="Cheap">De más barato a más caro</option>
-					<option value="Expensive">De más caro a más barato</option>
+				<label for="price">
+					<select class="search-input2" id="price" name="price" onChange={handleSelect}>
+						<option value=''>By price</option>
+						<option value="Cheap">De más barato a más caro</option>
+						<option value="Expensive">De más caro a más barato</option>
 
-				</select>
+					</select>
+				</label>
 			</div>
 		</div>
 	);
