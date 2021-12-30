@@ -13,6 +13,7 @@ const Catalog = () => {
 
     const [allPhones, setAllPhones] = useState([])
     const [allPhonesCopy, setCopy] = useState([])
+    const [orderByPrice, setOrderByPrice] = useState(false)
     const [modal, setModal] = useState(false)
 
     useEffect(() => {
@@ -29,12 +30,32 @@ const Catalog = () => {
             .catch(err => console.log(err))
     }
 
-    const searchProduct = (searchValue, price) => {
+    const searchProduct = (searchValue) => {
 
         let filteredProducts = allPhonesCopy.filter((elm) =>
-            elm.name.toLowerCase().includes(searchValue)
-        );
+            elm.name.toLowerCase().includes(searchValue));
         setAllPhones(filteredProducts);
+
+
+    };
+
+    const searchByPrice = (price) => {
+
+        if (price === "Cheap") {
+
+            let filteredProducts = allPhonesCopy.sort((a, b) =>
+                parseFloat(a.price) - parseFloat(b.price));
+
+            setAllPhones(filteredProducts);
+            setOrderByPrice(!orderByPrice)
+        }
+        else {
+            let filteredProducts = allPhonesCopy.sort((a, b) =>
+                parseFloat(b.price) - parseFloat(a.price));
+
+            setAllPhones(filteredProducts);
+            setOrderByPrice(!orderByPrice)
+        }
 
     };
 
@@ -52,7 +73,7 @@ const Catalog = () => {
     return (
         <>
             {/* {!allPhones ? <Spinner/> :  */}
-            <SearchBar searchProduct={searchProduct} />
+            <SearchBar searchProduct={searchProduct} searchByPrice={searchByPrice} />
             <Button variant="success" onClick={() => openModal()} >Create Phone </Button>
             <div className="container-wrap mt-5">
                 {allPhones?.map((elm, i) => <PhoneCard key={i} phone={elm} getCatalog={getCatalog} />)}

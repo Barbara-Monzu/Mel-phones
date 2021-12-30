@@ -16,8 +16,14 @@ const SearchBar = (props) => {
 	}
 
 	useEffect(() => {
-		props.searchProduct(searchText, price)
-	}, [searchText, price])
+		props.searchProduct(searchText)
+
+	}, [searchText])
+
+	useEffect(() => {
+		props.searchByPrice(price)
+
+	}, [price])
 
 
 
