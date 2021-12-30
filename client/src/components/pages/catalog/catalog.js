@@ -15,9 +15,11 @@ const Catalog = () => {
     const [allPhonesCopy, setCopy] = useState([])
     const [orderByPrice, setOrderByPrice] = useState(false)
     const [modal, setModal] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         getCatalog()
+        setLoading(true)
 
     }, [modal])
 
@@ -72,24 +74,28 @@ const Catalog = () => {
 
     return (
         <>
-            {/* {!allPhones ? <Spinner/> :  */}
-            <SearchBar searchProduct={searchProduct} searchByPrice={searchByPrice} />
-            <Button variant="success" onClick={() => openModal()} >Create Phone </Button>
-            <div className="container-wrap mt-5">
-                {allPhones?.map((elm, i) => <PhoneCard key={i} phone={elm} getCatalog={getCatalog} />)}
-            </div>
+            {!loading ? <Spinner shape="circle" /> :
 
-            <Modal show={modal} backdrop="static" onHide={closeModal}>
+                <>
+                    <h4 className="text-center my-4">List of Phones</h4>
+                    <SearchBar searchProduct={searchProduct} searchByPrice={searchByPrice} />
 
-                <Modal.Header closeButton>
-                    <Modal.Title>Edit Phone</Modal.Title>
-                </Modal.Header>
+                    <div className="container-wrap mt-5">
+                        <Button variant="success container" className="mb-5 mx-5" onClick={() => openModal()}>Create Phone </Button>
+                        {allPhones?.map((elm, i) => <PhoneCard key={i} phone={elm} getCatalog={getCatalog} />)}
+                    </div><Modal show={modal} backdrop="static" onHide={closeModal}>
 
-                <Modal.Body>
-                    <EditForm closeModal={closeModal} />
-                </Modal.Body>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Create Phone</Modal.Title>
+                        </Modal.Header>
 
-            </Modal>
+                        <Modal.Body>
+                            <EditForm closeModal={closeModal} />
+                        </Modal.Body>
+
+                    </Modal>
+                </>
+            }
 
         </>
 

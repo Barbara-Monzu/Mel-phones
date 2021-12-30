@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import PhonesService from '../../../services/phones.service'
 import { Link } from 'react-router-dom'
@@ -42,28 +42,37 @@ const DetailsPhone = () => {
 
     return (
         <>
+            {!phone ? (<Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>)
+                : (<div className="mt-5 container">
+                    <div className="row">
+                        <div className="my-5 mx-5 col">
 
-            <div className="container mt-5">
+                            <h4>Información sobre el producto</h4>
+                            <p>{phone?.name}</p>
+                            <p>{phone?.color}</p>
+                            <p>{phone?.description}</p>
+                            <p>{phone?.price?.toFixed(2)} €</p>
+                            <h4>Especificaciones técnicas</h4>
+                            <p>{phone?.screen}</p>
+                            <p>{phone?.processor}</p>
+                            <p>{phone?.ram}</p>
+                            <p>{phone?.manufacturer}</p>
+                            <Button variant="warning container" onClick={() => addPhone(phone)}>Comprar</Button>
+                            <Button variant="warning container" onClick={() => openModal()}>Editar</Button>
+                            <Button as={Link} to={'/catalog'} >Volver</Button>
 
-                <img src={phone?.imageFileName} alt="" />
+                        </div>
 
-                <div className="my-5 mx-5">
+                        <img className="col" src={phone?.imageFileName} style={{ width: '200px', height: '250px' }} alt="" />
 
-                    <p>{phone?.name}</p>
-                    <p>{phone?.color}</p>
-                    <p>{phone?.description}</p>
-                    <p>{phone?.price}</p>
-                    <p>{phone?.screen}</p>
-                    <p>{phone?.processor}</p>
-                    <p>{phone?.ram}</p>
-                    <p>{phone?.manufacturer}</p>
-                    <Button variant="warning" onClick={() => addPhone(phone)}>Comprar</Button>
-                    <Button variant="warning" onClick={() => openModal()}>Editar</Button>
-                    <Button as={Link} to={'/catalog'} >Volver</Button>
+
+                    </div>
 
                 </div>
-
-            </div>
+                )
+            }
 
             <Modal show={modal} backdrop="static" onHide={closeModal}>
 

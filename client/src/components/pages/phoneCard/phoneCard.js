@@ -13,7 +13,6 @@ const PhoneCard = (props) => {
     const { addPhone } = useContext(AddToCart)
 
     const deletePhone = (id) => {
-        console.log("mirando id que estoy pasando", id)
         phonesSvc
             .delete(id)
             .then(response => props.getCatalog())
@@ -28,7 +27,7 @@ const PhoneCard = (props) => {
             <Card.Body>
                 <Card.Title>{props.phone.name}</Card.Title>
                 <Card.Text>
-                    {props.phone.price} €
+                    {props.phone.price.toFixed(2)} €
                 </Card.Text>
                 <Button className="my-2" as={Link} to={`/details/${props.phone._id}`} variant="warning" >Details</Button>
                 <Button className="my-2" variant="warning" onClick={() => addPhone(props.phone)} >Add to Cart <img style={{ width: '20px', height: '20px' }} src="https://img.icons8.com/ios/50/000000/shopping-cart.png" alt="cart" /></Button>

@@ -1,14 +1,16 @@
-import { useState, useEffect} from 'react'
-import { useHistory } from 'react-router-dom'
-import { Form } from 'react-bootstrap'
+
+import React, { useState, useEffect } from 'react'
+import { Form, Button } from 'react-bootstrap'
 import PhonesService from '../../../services/phones.service'
 import UploadsService from '../../../services/uploads.service'
+import Spinner from '../../shared/spinner/spinner'
 
 const phonesSvc = new PhonesService()
 const uploadsSvc = new UploadsService()
 
 const EditForm = (props) => {
 
+    const [loading, setLoading] = useState(false)
 
     const [formData, setFormData] = useState({
         "id": undefined,
@@ -65,14 +67,18 @@ const EditForm = (props) => {
 
     const handleFile = e => {
 
-        setFormData({ ...formData, loading: true })
+        setLoading(true)
+        setFormData({ ...formData })
 
         const uploadedData = new FormData()
         uploadedData.append('imageData', e.target.files[0])
 
         uploadsSvc
             .uploadImage(uploadedData)
-            .then(res => setFormData({ ...formData, loading: false, imageFileName: res.data.cloudinary_url }))
+            .then(res => {
+                setFormData({ ...formData, imageFileName: res.data.cloudinary_url });
+                setLoading(false)
+            })
             .catch(err => console.error(err))
 
     }
@@ -83,18 +89,12 @@ const EditForm = (props) => {
         props.phone ?
             (phonesSvc
                 .edit(formData)
-                .then(response => {
-                    props.closeModal()
-                    console.log("BIEN! EDITANDO PHONES", response.data)
-                })
+                .then(response => props.closeModal())
                 .catch(err => console.error(err)))
             :
             (phonesSvc
                 .create(formData)
-                .then(response => {
-                    props.closeModal()
-                    console.log("BIEN! CREANDO MI PRIMERA CITA", response.data)
-                })
+                .then(response => props.closeModal())
                 .catch(err => console.error(err)))
 
 
@@ -131,14 +131,15 @@ const EditForm = (props) => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Control name="ram" value={formData.ram} onChange={e => handleChange(e)} type="text" placeholder="Ram" />
                 </Form.Group>
+                {loading && <Spinner shape="circle" />}
                 {props.phone ?
-                    (<button className="signup" style={{ cursor: "pointer" }}>
-                        Editar
-                    </button>)
+                    (<Button disabled={loading} variant="primary" type="submit">
+                        Edit
+                    </Button>)
                     :
-                    (<button className="signup" style={{ cursor: "pointer" }}>
-                        Crear
-                    </button>)}
+                    (<Button disabled={loading} variant="primary" type="submit">
+                        Create
+                    </Button>)}
 
 
             </Form>
