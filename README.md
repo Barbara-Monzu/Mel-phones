@@ -1,7 +1,8 @@
 # Soamee-test
 
 #### App demo: https://mel-phones.herokuapp.com/
-Catalog not available yet
+Catalog not available yet.
+Error 503 server. I'm working in it :)
 
 ### Description
 
