@@ -7,8 +7,11 @@ Error 503 server. I'm working in it :)
 ### Description
 
 **Mel-Phones** (SPA) 
-It is a simulation of a mobile store. The user can browse the web pages, filter by name and price, create, edit and delete phones. Create opinions and select products for later purchase. 
-Created in two days
+It is a simulation of a mobile store. The user can browse web pages, filter by name and price, create, edit and delete phones as well as select products for later purchase. You can also see opinions of other users and create your own.
+Project developed in two days.
+
+Es una simulación de una tienda de móbiles. El usuario puede navegar por las páginas web, filtrar por nombre y precio, crear, editar y eliminar teléfonos así como seleccionar productos para su posterior compra. También puede ver opiniones de otros usuarios y crear las suyas propias.
+Proyecto desarrollado en dos días.
 
 ### Server Install
 
