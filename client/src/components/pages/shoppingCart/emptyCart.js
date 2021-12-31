@@ -10,7 +10,7 @@ const emptyCart = (props) => {
         <div className="container text-center" style={{ height: 'calc(100vh - 230px)' }}>
 
             <p className="my-5">You do not have articles in you shopping cart</p>
-            <img style={{ width: "600px", height: "400px" }} src={catalogImg} alt="catalog" />
+            <img style={{ width: "500px", height: "300px" }} src={catalogImg} alt="catalog" />
             <Button variant="warning container" className="my-5" as={Link} to={'/'}>See the catalog</Button>
 
         </div>
