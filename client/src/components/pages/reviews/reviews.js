@@ -21,7 +21,8 @@ const ShowReviews = ({ _id }) => {
 
     const filterReviews = () => {
 
-        reviewSvc.get(_id)
+        reviewSvc
+            .get(_id)
             .then(response => {
                 console.log(response.data)
                 setProductReviews(response.data)
@@ -39,7 +40,9 @@ const ShowReviews = ({ _id }) => {
     }
 
     return (
+
         <Container>
+        
             {(productReviews?.length === 0) ?
 
                 (<div className="text-center container">
@@ -49,12 +52,13 @@ const ShowReviews = ({ _id }) => {
 
                 : (<div className="text-center">
                     <Button variant="secondary" onClick={() => openForm()} >Add a Review</Button>
-                    {productReviews?.reverse().map((review, i) => <PersonalReview key={i} {...review}/>)}
+                    {productReviews?.reverse().map((review, i) => <PersonalReview key={i} {...review} />)}
                 </div>)
             }
             {modal && <ReviewFrom id={_id} closeForm={closeForm} />}
 
         </Container>
+
     )
 
 }

@@ -97,7 +97,6 @@ const EditForm = (props) => {
                 .then(response => props.closeModal())
                 .catch(err => console.error(err)))
 
-
     }
 
 
@@ -131,7 +130,9 @@ const EditForm = (props) => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Control name="ram" value={formData.ram} onChange={e => handleChange(e)} type="text" placeholder="Ram" />
                 </Form.Group>
+
                 {loading && <Spinner shape="circle" />}
+                
                 {props.phone ?
                     (<Button disabled={loading} variant="primary" type="submit">
                         Edit
@@ -140,8 +141,6 @@ const EditForm = (props) => {
                     (<Button disabled={loading} variant="primary" type="submit">
                         Create
                     </Button>)}
-
-
             </Form>
         </>
     )

@@ -34,6 +34,7 @@ const PersonalReview = ({ reviewOwner, rating, description }) => {
     return (
 
         <div className="review">
+        
             <strong className="mx-5"> {reviewOwner} </strong>
             {starts?.map((start, i) => <span key={i}> &#11088; </span>)}
             <br></br>

@@ -28,6 +28,7 @@ const SearchBar = (props) => {
 
 
 	return (
+
 		<div>
 			<div className="container">
 				<input className="search-input searchBar-img" type="search" placeholder="Search by name..." name="search" onChange={handleSearch} />
@@ -42,6 +43,7 @@ const SearchBar = (props) => {
 				</label>
 			</div>
 		</div>
+		
 	);
 }
 

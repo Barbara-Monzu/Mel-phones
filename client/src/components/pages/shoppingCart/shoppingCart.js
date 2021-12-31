@@ -1,10 +1,11 @@
+
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Table, Button, Modal } from 'react-bootstrap'
 import { AddToCart } from '../../../App'
 import deleteIcon from '../../../img/delete.svg'
 import Spinner from '../../shared/spinner/spinner'
-import catalogImg from '../../../img/catalog.jpeg'
+import EmptyCart from './emptyCart'
 
 const ShoppingCart = () => {
 
@@ -46,18 +47,12 @@ const ShoppingCart = () => {
     }
 
 
-
     return (
         <>
             {!loading ? <Spinner shape="circle" /> :
                 <>
-                    {(shoppingCart.length === 0)
-                        ?
-                        <div className="container text-center" style={{ height: 'calc(100vh - 230px)' }}>
-                            <p className="my-5" >You do not have articles in you shopping cart</p>
-                            <img style={{width: "600px", height: "400px"}} src={catalogImg} alt="catalog"/>
-                            <Button variant="warning container" className="my-5" as={Link} to={'/'}>See the catalog</Button>
-                        </div>
+                    {(shoppingCart.length === 0) ? <EmptyCart/>
+                    
                         :
                         <div className="my-4 container px-5" style={{ height: 'calc(100vh - 270px)' }}>
                             <p className="text-center">Your purchase</p>
@@ -98,16 +93,14 @@ const ShoppingCart = () => {
                     }
 
                     <Modal show={modal} backdrop="static" onHide={closeModal}>
-
                         <Modal.Header closeButton>
                             <Modal.Title>Sing Up</Modal.Title>
                         </Modal.Header>
-
                         <Modal.Body>
-                            <span className="text-center">You have to be registered to be able to buy the products</span>
-                            {/* <SingUpForm closeModal={closeModal}/> */}
+                            <span className="text-center">
+                            You have to be registered to be able to buy the products
+                            </span>
                         </Modal.Body>
-
                     </Modal>
 
                 </>

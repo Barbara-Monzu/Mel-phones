@@ -22,7 +22,6 @@ const ReviewForm = (props) => {
 
   }
 
-
   const handleSubmit = e => {
     e.preventDefault()
 
@@ -40,6 +39,7 @@ const ReviewForm = (props) => {
 
       <Col ms={12}>
         <Form onSubmit={handleSubmit}>
+
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control name="reviewOwner" value={formData.reviewOwner} onChange={e => handleChange(e)} type="text" placeholder="Your name" />
           </Form.Group>
@@ -53,8 +53,8 @@ const ReviewForm = (props) => {
           <Button variant="secondary" type='submit' style={{ margin: '10px' }}>Send comments </Button>
 
         </Form>
-
       </Col>
+
     </Container>
 
 
