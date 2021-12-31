@@ -1,10 +1,13 @@
 # Soamee-test
 
-#### App demo:
+#### App demo: https://mel-phones.herokuapp.com/
+Catalog not available yet
 
 ### Description
 
-**Mel-Phones** (SPA) is an online mobile phone store.
+**Mel-Phones** (SPA) 
+It is a simulation of a mobile store. The user can browse the web pages, filter by name and price, create, edit and delete phones. Create opinions and select products for later purchase. 
+Created in two days
 
 ### Server Install
 
