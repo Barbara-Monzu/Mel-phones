@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useContext } from "react"
 import { Modal, Button, Spinner, Container, Col } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
@@ -5,6 +6,8 @@ import PhonesService from '../../../services/phones.service'
 import { Link } from 'react-router-dom'
 import { AddToCart } from '../../../App'
 import EditForm from '../editForm/editForm'
+import ShowReviews from '../reviews/reviews'
+import { ReactComponent as ShoppingCart } from '../../../img/shopping-cart.svg'
 
 
 
@@ -19,6 +22,7 @@ const DetailsPhone = () => {
     const [phone, setPhone] = useState([])
     const [modal, setModal] = useState(false)
     const [modalBuy, setModalBuy] = useState(false)
+    const [showReviews, setShowReviews] = useState(false)
 
 
     useEffect(() => {
@@ -46,11 +50,6 @@ const DetailsPhone = () => {
     }
 
 
-
-
-
-
-
     return (
         <>
             {!phone ? (<Spinner animation="border" role="status">
@@ -60,7 +59,7 @@ const DetailsPhone = () => {
                     <div className="row">
                         <Col className="mt-5 mx-5" xs={{ order: 'last' }}>
 
-                            <h4><strong>Información sobre el producto</strong></h4>
+                            <h4><strong>Information about the product</strong></h4>
                             <p><strong>Name: </strong>{phone?.name}</p>
                             <p><strong>Manufacturer: </strong>{phone?.manufacturer}</p>
                             <p><strong>Color: </strong>{phone?.color}</p>
@@ -71,17 +70,19 @@ const DetailsPhone = () => {
                             <p><strong>Ram: </strong>{phone?.ram}</p>
                             <h4><strong>Free shipping</strong></h4>
 
-                            <Button className="text-center mt-2" as={Link} to={'/catalog'} variant="dark">Volver</Button>
+                            <Button className="text-center mt-2" as={Link} to={'/'} variant="dark">Volver</Button>
 
                         </Col>
                         <Col className="my-3 mb-5">
                             <Container className="text-center">
                                 <img className=" my-3" src={phone?.imageFileName} style={{ width: '300px', height: '350px', objectFit: "cover" }} alt="" />
+
                                 <Button variant="warning" className="mt-3 text-center mx-1" style={{ width: '250px' }} onClick={() => openModalBuy()}>Buy
-                                    <img style={{ width: '20px', height: '20px' }} src="https://img.icons8.com/ios/50/000000/shopping-cart.png" alt="cart" />
+                                    <ShoppingCart fill="black" style={{ width: "20px", height: "20px", marginLeft: "20px" }} />
                                 </Button>
+
                                 <Button variant="success" className="mt-3 text-center mx-1" style={{ width: '250px' }} onClick={() => openModal()}>Edit</Button>
-                                <Button variant="secondary" className="mt-3 text-center mx-1" style={{ width: '250px' }} onClick={() => openModal()}>Review</Button>
+                                <Button variant="secondary" className="mt-3 text-center mx-1" style={{ width: '250px' }} onClick={() => setShowReviews(true)}>Reviews</Button>
                             </Container>
                         </Col>
 
@@ -92,29 +93,27 @@ const DetailsPhone = () => {
             }
 
             <Modal show={modal} backdrop="static" onHide={closeModal}>
-
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Phone</Modal.Title>
                 </Modal.Header>
-
                 <Modal.Body>
                     <EditForm closeModal={closeModal} phone={phone} />
                 </Modal.Body>
-
             </Modal>
 
             <Modal show={modalBuy} backdrop="static" onHide={closeModal}>
-
                 <Modal.Header closeButton>
                     <Modal.Title>¿Do you want to continue shopping?</Modal.Title>
                 </Modal.Header>
-
                 <Modal.Body>
-                    <Button as={Link} to={'/catalog'} variant="secondary" className="mt-3" style={{ width: '300px' }}>Yes</Button>
-                    <Button as={Link} to={'/cart'} variant="secondary" className="mt-3" style={{ width: '300px' }}>Go to pay</Button>
+                    <Container className="text-center">
+                        <Button as={Link} to={'/'} variant="info" className="mt-3" style={{ width: '300px' }}>Yes</Button>
+                        <Button as={Link} to={'/cart'} variant="info" className="mt-3" style={{ width: '300px' }}>Go to pay</Button>
+                    </Container>
                 </Modal.Body>
-
             </Modal>
+
+            {showReviews && <ShowReviews {...phone} />}
 
 
 

@@ -4,6 +4,7 @@ import { Table, Button, Modal } from 'react-bootstrap'
 import { AddToCart } from '../../../App'
 import deleteIcon from '../../../img/delete.svg'
 import Spinner from '../../shared/spinner/spinner'
+import catalogImg from '../../../img/catalog.jpeg'
 
 const ShoppingCart = () => {
 
@@ -52,13 +53,14 @@ const ShoppingCart = () => {
                 <>
                     {(shoppingCart.length === 0)
                         ?
-                        <div className="container" style={{ height: 'calc(100vh - 230px)' }}>
-                            <p className="text-center my-5" >Aún no has comprado nada</p>
-                            <Button variant="success container" className="" as={Link} to={'/catalog'}>Ir al catálogo</Button>
+                        <div className="container text-center" style={{ height: 'calc(100vh - 230px)' }}>
+                            <p className="my-5" >You do not have articles in you shopping cart</p>
+                            <img style={{width: "600px", height: "400px"}} src={catalogImg} alt="catalog"/>
+                            <Button variant="warning container" className="my-5" as={Link} to={'/'}>See the catalog</Button>
                         </div>
                         :
                         <div className="my-4 container px-5" style={{ height: 'calc(100vh - 270px)' }}>
-                            <p className="text-center">Tu compra</p>
+                            <p className="text-center">Your purchase</p>
                             <Table hover className="my-3">
                                 <thead>
                                     <tr>
@@ -73,7 +75,7 @@ const ShoppingCart = () => {
                                 {shoppingCart.map((elm, i) => (
                                     <tbody key={i}>
                                         <tr>
-                                            <td><img style={{ width: '20px', height: '20px' }} src={elm.imageFileName} alt={elm.name} /></td>
+                                            <td><img style={{ width: '60px', height: '70px', objectFit: "cover", marginLeft: "30px"}} src={elm.imageFileName} alt={elm.name} /></td>
                                             <td>{elm.name}</td>
                                             <td>{elm.price.toFixed(2)} €</td>
                                             {/* <td>{elm.quantity}</td> */}
@@ -91,7 +93,7 @@ const ShoppingCart = () => {
                                 </tbody>
 
                             </Table>
-                            <Button variant="success container" className="my-4" onClick={() => openModal()}>Buy </Button>
+                            <Button variant="warning container" className="my-4" onClick={() => openModal()}>Buy </Button>
                         </div>
                     }
 
@@ -102,7 +104,7 @@ const ShoppingCart = () => {
                         </Modal.Header>
 
                         <Modal.Body>
-                            <>Tienes que estar registrado para poder hacer compras en la web</>
+                            <span className="text-center">You have to be registered to be able to buy the products</span>
                             {/* <SingUpForm closeModal={closeModal}/> */}
                         </Modal.Body>
 

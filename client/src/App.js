@@ -1,7 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react'
-import { Redirect, Switch, Route } from 'react-router-dom'
-// import Footer from "../footerNav/FooterNav";
-import Navigation from "./components/pages/navigation/navigation";
+import { Switch, Route } from 'react-router-dom'
+import Navigation from "./components/layout/navigation";
 import Footer from "./components/layout/footer";
 import Catalog from "./components/pages/catalog/catalog"
 import DetailsPhone from "./components/pages/details/detailsPhone"
@@ -32,14 +31,13 @@ function App() {
 
 
   return (
-<>
+    <>
       <Navigation count={countCart} />
       <div className="general-routes">
         <AddToCart.Provider value={{ addPhone, shoppingCart, setCountCart }}>
 
           <Switch>
-            <Route path="/" exact render={() => <Redirect to="/catalog" />} />
-            <Route path="/catalog" exact render={() => <Catalog />} />
+            <Route path="/" exact render={() => <Catalog />} />
             <Route path="/details/:id" render={() => <DetailsPhone />} />
             <Route path="/cart" render={() => <ShoppingCart />} />
           </Switch>

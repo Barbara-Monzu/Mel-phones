@@ -9,7 +9,7 @@ class PhonesService {
   }
 
 
-  getAllPhones = () => this.app.get()
+  getAllPhones = (page) => this.app.get(`/${page}`)
 
   getOne = (id) => this.app.get(`/details/${id}`)
 

@@ -12,28 +12,18 @@
 }
 
 
-/* .general-header {
-    
-    position: relative;
-    display: block;
-    height: 70px;
-    width:100vw;
-    z-index: 100px;
-
-}    */
-
 .general-footer {
     position: fixed;
     background: #212529;
     text-align: center;
     color: white;
     display: block;
-    height: 50px;
+    height: 40px;
     width:100vw;
     z-index:100;
     font-size: small;
     bottom: 0;
-    padding: 20px;
+    padding: 10px;
 
 }
 

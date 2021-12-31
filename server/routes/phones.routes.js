@@ -2,10 +2,15 @@
 const router = require("express").Router();
 const Phone = require('../models/Phone.model')
 
-router.get("/", (req, res, next) => {
+router.get("/:page", (req, res, next) => {
+  const { page } = req.params
+  let skip = page * 4
 
+  console.log("miro page y skip", page, skip)
   Phone
     .find()
+    .skip(skip)
+    .limit(4)
     .then(allPhones => res.json(allPhones))
     .catch(err => console.log(err))
 
@@ -23,7 +28,7 @@ router.get("/details/:id", (req, res, next) => {
 
 
 router.post("/", (req, res, next) => {
-// const { _id } = req.params
+  // const { _id } = req.params
   const { id, name, manufacturer, description, color, price, imageFileName, screen, processor, ram } = req.body
   const query = { id, name, manufacturer, description, color, price, screen, processor, ram }
 
