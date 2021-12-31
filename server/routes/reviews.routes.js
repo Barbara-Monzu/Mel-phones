@@ -14,6 +14,7 @@ router.get('/:id', (req, res) => {
 router.post('/:id', (req, res) => {
     const { id } = req.params;
     const { rating, description, reviewOwner } = req.body
+    console.log("Miro el ID", id)
 
     Review.create({ rating, description, reviewOwner, idProduct: id })
         .then(newReview => res.status(200).json(newReview))

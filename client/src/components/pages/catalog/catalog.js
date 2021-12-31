@@ -23,10 +23,11 @@ const Catalog = () => {
         getCatalog(0)
         setLoading(true)
 
-    }, [modal])
+    }, [])
 
     const getCatalog = (page) => {
-        phonesSvc.getAllPhones(page)
+        phonesSvc
+            .getAllPhones(page)
             .then(res => {
                 setAllPhones(res.data)
                 setCopy(res.data)
@@ -48,7 +49,6 @@ const Catalog = () => {
     }
 
     const searchProduct = (searchValue) => {
-
         let filteredProducts = allPhonesCopy.filter((elm) =>
             elm.name.toLowerCase().includes(searchValue));
         setAllPhones(filteredProducts);
@@ -85,13 +85,13 @@ const Catalog = () => {
 
     return (
         <>
-            {!loading ? <Spinner shape="circle" /> 
-            
-            :
+            {!loading ? <Spinner shape="circle" />
+
+                :
                 <div className="container text-center" >
 
                     <h3 className=" my-4 mt-3 text-center" ><strong>List of Phones </strong></h3>
-                    <SearchBar searchProduct={searchProduct} searchByPrice={searchByPrice} />
+                    <SearchBar page={page} searchProduct={searchProduct} searchByPrice={searchByPrice} />
                     <Col as={Button} variant="info" style={{ width: '150px', margin: '20px' }} onClick={() => openModal()}>Create Phone </Col>
 
                     <div className="container-wrap mt-3">
@@ -103,13 +103,13 @@ const Catalog = () => {
                             <Modal.Title>Create Phone</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <EditForm closeModal={closeModal} />
+                            <EditForm allPhones={allPhones} closeModal={closeModal} />
                         </Modal.Body>
                     </Modal>
 
                     <img style={{ cursor: "pointer", transform: "rotate(180deg)", marginRight: "80px" }} src={next} onClick={() => paginatioBack()} alt="more-than" />
                     <img style={{ cursor: "pointer", margin: "auto, 80px" }} src={next} onClick={() => paginatioNext()} alt="more-than" />
-                    
+
                 </div>
             }
 

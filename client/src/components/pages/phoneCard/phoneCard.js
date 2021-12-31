@@ -16,7 +16,7 @@ const PhoneCard = (props) => {
     const deletePhone = (id) => {
         phonesSvc
             .delete(id)
-            .then(response => props.getCatalog())
+            .then(response => props.getCatalog(0))
             .catch(err => console.error(err))
 
     }
@@ -25,12 +25,12 @@ const PhoneCard = (props) => {
 
         <Card className="card-type" style={{ width: "16rem", margin: "25px 20px" }}>
 
-            <Card.Img variant="top" src={props.phone.imageFileName} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
+            <Card.Img variant="top" src={props.phone?.imageFileName} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
 
             <Card.Body>
-                <Card.Title>{props.phone.name}</Card.Title>
+                <Card.Title>{props.phone?.name}</Card.Title>
                 <Card.Text>
-                    {props.phone.price.toFixed(2)} €
+                    {props.phone.price?.toFixed(2)} €
                 </Card.Text>
                 <Container>
                     <Button variant="danger mx-2" onClick={() => deletePhone(props.phone._id)} >Delete </Button>

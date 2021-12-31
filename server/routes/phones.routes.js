@@ -4,13 +4,13 @@ const Phone = require('../models/Phone.model')
 
 router.get("/:page", (req, res, next) => {
   const { page } = req.params
-  let skip = page * 4
+  let skip = page * 10
 
   console.log("miro page y skip", page, skip)
   Phone
     .find()
     .skip(skip)
-    .limit(4)
+    .limit(10)
     .then(allPhones => res.json(allPhones))
     .catch(err => console.log(err))
 

@@ -9,7 +9,7 @@ const Navigation = ({ count }) => {
 
     <Navbar className="fixed" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand as={Link} to="/" style={{ letterSpacing: "0.4rem", fontWeigth: "900" }}>Mel-Phones</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" style={{ letterSpacing: "0.4rem", fontSize: "26px"}}>Mel-Phones</Navbar.Brand>
         <Nav className="me-auto">
         </Nav>
         <Nav.Link as={Link} to="/cart" >

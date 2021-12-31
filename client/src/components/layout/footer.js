@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer>
             <p>Created by Bárbara Monzú - monzu.barbara@gmail.com
-            <a className="insta" href="https://github.com/Barbara-Monzu"><Github fill="white" style={{marginLeft: "20px"}}/></a></p>
+            <a className="insta" href="https://github.com/Barbara-Monzu/Soamee"><Github fill="white" style={{marginLeft: "20px"}}/></a></p>
         </footer>
     )
 }

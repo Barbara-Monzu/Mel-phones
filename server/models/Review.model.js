@@ -4,9 +4,8 @@ const { Schema, model } = require("mongoose");
 const reviewSchema = new Schema(
   {
     rating: {
-      type: Number,
-      max: 5,
-      min: 0,
+      type: String,
+      enum: ["1", "2", "3", "4", "5"]
     },
 
     description: {
@@ -28,5 +27,7 @@ const reviewSchema = new Schema(
 );
 
 const Review = model("Review", reviewSchema);
+
+Review.syncIndexes()
 
 module.exports = Review;

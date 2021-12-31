@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
 import { Table, Button, Modal } from 'react-bootstrap'
 import { AddToCart } from '../../../App'
 import deleteIcon from '../../../img/delete.svg'
@@ -51,8 +50,8 @@ const ShoppingCart = () => {
         <>
             {!loading ? <Spinner shape="circle" /> :
                 <>
-                    {(shoppingCart.length === 0) ? <EmptyCart/>
-                    
+                    {(shoppingCart.length === 0) ? <EmptyCart />
+
                         :
                         <div className="my-4 container px-5" style={{ height: 'calc(100vh - 270px)' }}>
                             <p className="text-center">Your purchase</p>
@@ -62,7 +61,6 @@ const ShoppingCart = () => {
                                         <th></th>
                                         <th>Product</th>
                                         <th>Price</th>
-                                        {/* <th>Quantity</th> */}
                                         <th>Total</th>
                                     </tr>
                                 </thead>
@@ -70,10 +68,9 @@ const ShoppingCart = () => {
                                 {shoppingCart.map((elm, i) => (
                                     <tbody key={i}>
                                         <tr>
-                                            <td><img style={{ width: '60px', height: '70px', objectFit: "cover", marginLeft: "30px"}} src={elm.imageFileName} alt={elm.name} /></td>
-                                            <td>{elm.name}</td>
-                                            <td>{elm.price.toFixed(2)} €</td>
-                                            {/* <td>{elm.quantity}</td> */}
+                                            <td><img style={{ width: '60px', height: '70px', objectFit: "cover", marginLeft: "30px" }} src={elm.imageFileName} alt={elm?.name} /></td>
+                                            <td>{elm?.name}</td>
+                                            <td>{elm.price?.toFixed(2)} €</td>
                                             <td><img style={{ cursor: 'pointer', width: '20px', height: '20px' }} src={deleteIcon} alt="delete" onClick={() => deleteItem(elm)} /></td>
                                         </tr>
                                     </tbody>))}
@@ -98,7 +95,7 @@ const ShoppingCart = () => {
                         </Modal.Header>
                         <Modal.Body>
                             <span className="text-center">
-                            You have to be registered to be able to buy the products
+                                You have to be registered to be able to buy the products
                             </span>
                         </Modal.Body>
                     </Modal>

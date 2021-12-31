@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Container, Button, Modal } from "react-bootstrap";
 import ReviewService from '../../../services/reviews.service';
 import ReviewFrom from './reviewForm';
@@ -39,22 +39,30 @@ const ShowReviews = ({ _id }) => {
         setModal(false)
     }
 
+    const divRef = useRef(null);
+
+    useEffect(() => {
+        divRef.current.scrollIntoView({ behavior: "smooth" })
+    }, [])
+
     return (
 
         <Container>
-        
+
+            <div ref={divRef}></div>
             {(productReviews?.length === 0) ?
 
-                (<div className="text-center container">
+                (<div className="text-center container my-4">
                     <p><strong>Be the first to leave your comment</strong></p>
-                    {!hiddenButton && <Button variant="secondary" onClick={() => openForm()} >Add a Review</Button>}
+                    {!hiddenButton && <Button variant="secondary my-4" onClick={() => openForm()} >Add a Review</Button>}
                 </div>)
 
-                : (<div className="text-center">
-                    <Button variant="secondary" onClick={() => openForm()} >Add a Review</Button>
+                : (<div className="text-center my-5">
+                    {!hiddenButton && <Button variant="secondary" onClick={() => openForm()} >Add a Review</Button>}
                     {productReviews?.reverse().map((review, i) => <PersonalReview key={i} {...review} />)}
                 </div>)
             }
+
             {modal && <ReviewFrom id={_id} closeForm={closeForm} />}
 
         </Container>

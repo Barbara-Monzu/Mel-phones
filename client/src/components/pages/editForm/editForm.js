@@ -94,7 +94,9 @@ const EditForm = (props) => {
             :
             (phonesSvc
                 .create(formData)
-                .then(response => props.closeModal())
+                .then(response => 
+                    {props.allPhones.unshift(response.data)
+                    props.closeModal()})
                 .catch(err => console.error(err)))
 
     }
@@ -106,6 +108,9 @@ const EditForm = (props) => {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control name="name" value={formData.name} onChange={e => handleChange(e)} type="text" placeholder="Name" />
                 </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Control name="id" value={formData.id} onChange={e => handleChange(e)} type="number" placeholder="Id" />
+                </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Control name="manufacturer" value={formData.manufacturer} onChange={e => handleChange(e)} type="text" placeholder="Manufacturer" />
                 </Form.Group>
@@ -116,7 +121,7 @@ const EditForm = (props) => {
                     <Form.Control name="color" value={formData.color} onChange={e => handleChange(e)} type="text" placeholder="Color" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Control name="price" value={formData.price} onChange={e => handleChange(e)} type="text" placeholder="Price" />
+                    <Form.Control name="price" value={formData.price} onChange={e => handleChange(e)} type="number" placeholder="Price" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Control name="imageFileName" onChange={(e) => handleFile(e)} type="file" />
@@ -128,7 +133,7 @@ const EditForm = (props) => {
                     <Form.Control name="processor" value={formData.processor} onChange={e => handleChange(e)} type="text" placeholder="Processor" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Control name="ram" value={formData.ram} onChange={e => handleChange(e)} type="text" placeholder="Ram" />
+                    <Form.Control name="ram" value={formData.ram} onChange={e => handleChange(e)} type="number" placeholder="Ram" />
                 </Form.Group>
 
                 {loading && <Spinner shape="circle" />}
