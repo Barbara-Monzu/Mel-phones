@@ -3,7 +3,7 @@ import axios from 'axios'
 class ReviewService {
   constructor() {
     this.app = axios.create({
-      baseURL: 'http://localhost:5005/reviews',
+      baseURL: `${process.env.REACT_APP_BASE_URL}/reviews`,
       withCredentials: true
     })
   }
