@@ -4,7 +4,7 @@
 
 ### Description
 
-**Soamee-Phone** (SPA) is an online mobile phone store.
+**Mel-Phones** (SPA) is an online mobile phone store.
 
 ### Server Install
 
@@ -31,7 +31,7 @@ npm run dev
 
 ### On client:
 
-- REACT_APP_BASE_URL=http://localhost:5005/phones
+- REACT_APP_BASE_URL=http://localhost:5005
 
 
 ### Client Install
@@ -57,6 +57,9 @@ npm run start
 |	PUT	|	/phones	|		Edit a phone |
 |	DELETE	|	/phones	|	Delete a phone	|
 |	POST	|	/uploads	|	Upload an image |
+|	GET	|	/reviews/:id	|		Bring the reviews of a phone |
+|	POST	|	/reviews/:id	|	Create a review |
+
 
 
 
@@ -66,8 +69,7 @@ npm run start
 | Routes file | Path                       | Action                                            | 
 | ----------- | -------------------------- |-------------------------------------------------- |
 | User 
-|             | /                 | Redirect to catalog                              |
-|             | /catalog                  | Render all phones                  |
+|             | /                  | Render all phones                  |
 |             | /details/:id                    | Details of a phone |
 |             | /cart           | Shopping Cart|
 
