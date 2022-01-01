@@ -35,10 +35,9 @@ npm run dev
 - CLOUDINARY_KEY = Key to your Cloudinary account
 - CLOUDINARY_SECRET = Secret key of your Cloudinary account
 
+### Server DDBB
 
-### On client:
-
-- REACT_APP_BASE_URL=http://localhost:5005
+You can add the phones.json file that you will find in the seeds folder to your database to have the catalog.
 
 
 ### Client Install
@@ -52,6 +51,10 @@ npm install
 ```sh
 npm run start
 ```
+
+### Client .env variables needed:
+
+- REACT_APP_BASE_URL=http://localhost:5005
 
 
 ### Endpoints
@@ -88,7 +91,7 @@ npm run start
 - React - Hooks
 - MongoDB
 - Express
-- Node
+- Node.js
 - Javascript (ES6)
 - HTML & CSS
 - Bootstrap
