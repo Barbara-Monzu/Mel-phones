@@ -39,6 +39,8 @@ npm run dev
 
 You can add the phones.json file that you will find in the seeds folder to your database to have the catalog.
 
+Puedes agregar el archivo phones.json que encontrará en la carpeta seeds a tu base de datos para tener el catálogo
+
 
 ### Client Install
 
