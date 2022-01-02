@@ -1,4 +1,3 @@
-
 import { ReactComponent as Github } from '../../img/github.svg'
 
 const Footer = () => {

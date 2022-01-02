@@ -1,4 +1,3 @@
-
 import React, { useContext } from "react"
 import { ReactComponent as ShoppingCart } from '../../../img/shopping-cart.svg'
 import { Link } from 'react-router-dom'

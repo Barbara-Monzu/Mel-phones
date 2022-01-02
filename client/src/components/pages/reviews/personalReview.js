@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect, useRef } from 'react'
 import './reviews.css'
 
 const PersonalReview = ({ reviewOwner, rating, description }) => {
 
     const [starts, setStarts] = useState([])
+    const divRef = useRef(null);
 
     useEffect(() => {
         switch (rating) {
@@ -29,8 +29,6 @@ const PersonalReview = ({ reviewOwner, rating, description }) => {
         }
 
     }, [])
-
-    const divRef = useRef(null);
 
     useEffect(() => {
         divRef.current.scrollIntoView({ behavior: "smooth" })

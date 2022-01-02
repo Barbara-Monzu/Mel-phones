@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom'
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { ReactComponent as ShoppingCart } from '../../img/shopping-cart.svg'
@@ -22,6 +21,5 @@ const Navigation = ({ count }) => {
 
   )
 }
-
 
 export default Navigation

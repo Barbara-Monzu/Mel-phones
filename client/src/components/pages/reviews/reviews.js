@@ -9,10 +9,11 @@ import './reviews.css'
 const reviewSvc = new ReviewService()
 
 const ShowReviews = ({ _id }) => {
-
+    
     const [productReviews, setProductReviews] = useState(undefined)
     const [modal, setModal] = useState(false)
     const [hiddenButton, setHiddenButton] = useState(false)
+    const divRef = useRef(null);
 
     useEffect(() => {
         filterReviews()
@@ -39,7 +40,6 @@ const ShowReviews = ({ _id }) => {
         setModal(false)
     }
 
-    const divRef = useRef(null);
 
     useEffect(() => {
         divRef.current.scrollIntoView({ behavior: "smooth" })

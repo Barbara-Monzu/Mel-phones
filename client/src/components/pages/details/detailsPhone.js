@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useContext } from "react"
 import { useParams, Link } from 'react-router-dom'
 import { ReactComponent as ShoppingCart } from '../../../img/shopping-cart.svg'

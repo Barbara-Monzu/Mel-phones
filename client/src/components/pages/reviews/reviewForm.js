@@ -1,13 +1,12 @@
-
 import React, { useState, useEffect, useRef } from 'react'
-// import {Link} from 'react-router-dom'
 import { Container, Col, Button, Form, Row } from "react-bootstrap";
 import ReviewService from '../../../services/reviews.service';
 const reviewSvc = new ReviewService()
 
 const ReviewForm = (props) => {
-
-
+  
+  
+  const divRef = useRef(null);
   const [formData, setFormData] = useState({
     "rating": "",
     "description": "",
@@ -31,7 +30,6 @@ const ReviewForm = (props) => {
 
   }
 
-  const divRef = useRef(null);
   useEffect(() => {
     divRef.current.scrollIntoView({ behavior: "smooth" })
 }, [])

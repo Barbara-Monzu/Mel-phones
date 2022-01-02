@@ -1,20 +1,6 @@
-
 const router = require("express").Router();
 const Phone = require('../models/Phone.model')
 
-router.get("/:page", (req, res, next) => {
-  const { page } = req.params
-  let skip = page * 10
-
-  console.log("miro page y skip", page, skip)
-  Phone
-    .find()
-    .skip(skip)
-    .limit(10)
-    .then(allPhones => res.json(allPhones))
-    .catch(err => console.log(err))
-
-});
 
 router.get("/details/:id", (req, res, next) => {
   const { id } = req.params
@@ -26,9 +12,21 @@ router.get("/details/:id", (req, res, next) => {
 
 });
 
+router.get("/:page", (req, res, next) => {
+  const { page } = req.params
+  let skip = page * 10
+
+  Phone
+    .find()
+    .skip(skip)
+    .limit(10)
+    .then(allPhones => res.json(allPhones))
+    .catch(err => console.log(err))
+
+});
 
 router.post("/", (req, res, next) => {
-  // const { _id } = req.params
+
   const { id, name, manufacturer, description, color, price, imageFileName, screen, processor, ram } = req.body
   const query = { id, name, manufacturer, description, color, price, screen, processor, ram }
 
@@ -59,8 +57,6 @@ router.put("/", (req, res, next) => {
 
 router.delete("/:id", (req, res) => {
   const { id } = req.params
-
-  console.log("mirando id para borrar", id)
 
   Phone
     .findByIdAndDelete(id)
