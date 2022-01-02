@@ -1,10 +1,17 @@
 # Soamee-test
 
-#### App demo:
+#### App demo: https://mel-phones.herokuapp.com/
+Catalog not available yet.
+Error 503 server. I'm working in it :)
 
 ### Description
 
-**Mel-Phones** (SPA) is an online mobile phone store.
+**Mel-Phones** (SPA) 
+It is a simulation of a mobile store. The user can browse web pages, filter by name and price, create, edit and delete phones as well as select products for later purchase. You can also see opinions of other users and create your own.
+Project developed in two days.
+
+Es una simulación de una tienda de móbiles. El usuario puede navegar por las páginas web, filtrar por nombre y precio, crear, editar y eliminar teléfonos así como seleccionar productos para su posterior compra. También puede ver opiniones de otros usuarios y crear las suyas propias.
+Proyecto desarrollado en dos días.
 
 ### Server Install
 
@@ -28,10 +35,11 @@ npm run dev
 - CLOUDINARY_KEY = Key to your Cloudinary account
 - CLOUDINARY_SECRET = Secret key of your Cloudinary account
 
+### Server DDBB
 
-### On client:
+You can add the phones.json file that you will find in the seeds folder to your database to have the catalog.
 
-- REACT_APP_BASE_URL=http://localhost:5005
+Puedes agregar el archivo phones.json que encontrará en la carpeta seeds a tu base de datos para tener el catálogo
 
 
 ### Client Install
@@ -45,6 +53,10 @@ npm install
 ```sh
 npm run start
 ```
+
+### Client .env variables needed:
+
+- REACT_APP_BASE_URL=http://localhost:5005
 
 
 ### Endpoints
@@ -81,7 +93,7 @@ npm run start
 - React - Hooks
 - MongoDB
 - Express
-- Node
+- Node.js
 - Javascript (ES6)
 - HTML & CSS
 - Bootstrap
