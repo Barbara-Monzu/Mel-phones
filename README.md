@@ -8,10 +8,11 @@ Error 503 server. I'm working in it :)
 
 **Mel-Phones** (SPA) 
 It is a simulation of a mobile store. The user can browse web pages, filter by name and price, create, edit and delete phones as well as select products for later purchase. You can also see opinions of other users and create your own.
-Project developed in two days.
 
+
+**Mel-Phones** (SPA) 
 Es una simulación de una tienda de móbiles. El usuario puede navegar por las páginas web, filtrar por nombre y precio, crear, editar y eliminar teléfonos así como seleccionar productos para su posterior compra. También puede ver opiniones de otros usuarios y crear las suyas propias.
-Proyecto desarrollado en dos días.
+
 
 ### Server Install
 
@@ -37,9 +38,9 @@ npm run dev
 
 ### Server DDBB
 
-You can add the phones.json file that you will find in the seeds folder to your database to have the catalog.
+You can add the ***phones.json*** file that you will find in the ***seeds*** folder to your database to have the catalog.
 
-Puedes agregar el archivo phones.json que encontrará en la carpeta seeds a tu base de datos para tener el catálogo
+Puedes agregar el archivo ***phones.json*** que encontrarás en la carpeta ***seeds*** a tu base de datos para tener el catálogo
 
 
 ### Client Install
@@ -97,4 +98,8 @@ npm run start
 - Javascript (ES6)
 - HTML & CSS
 - Bootstrap
+
+### Aditional Info
+
+Project developed in two days.
 
