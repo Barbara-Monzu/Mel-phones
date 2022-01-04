@@ -4,6 +4,10 @@
 Catalog not available yet.
 Error 503 server. I'm working in it :)
 
+<img src="server/public/demo.gif" alt="drawing" style="width:500px"/>
+
+<br>
+
 ### Description
 
 **Mel-Phones** (SPA) 
