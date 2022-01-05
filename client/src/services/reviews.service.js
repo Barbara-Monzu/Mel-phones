@@ -9,6 +9,7 @@ class ReviewService {
   }
   
  get = (id) => this.app.get(`/${id}`)
+ 
  create = (id, data) => this.app.post(`/${id}`, data)
  
 }

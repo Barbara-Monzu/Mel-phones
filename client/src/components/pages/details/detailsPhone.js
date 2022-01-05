@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useContext } from "react"
 import { useParams, Link } from 'react-router-dom'
 import { ReactComponent as ShoppingCart } from '../../../img/shopping-cart.svg'
-import { Modal, Button, Container, Col, Row } from 'react-bootstrap'
+import { Modal, Button, Container, Col, Row, Carousel } from 'react-bootstrap'
 import { AddToCart } from '../../../App'
 import PhonesService from '../../../services/phones.service'
 import EditForm from '../editForm/editForm'
 import ShowReviews from '../reviews/reviews'
 import Spinner from '../../shared/spinner/spinner'
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import InnerImageZoom from 'react-inner-image-zoom';
 
 const phonesSvc = new PhonesService()
 
@@ -45,10 +47,11 @@ const DetailsPhone = () => {
         setModalBuy(true)
     }
 
+    console.log("phone?.imageFileName", phone?.imageFileName)
 
     return (
         <>
-            {!phone ? (<Spinner shape="circle"/>)
+            {!phone ? (<Spinner shape="circle" />)
                 : (<Container className="mt-5 container">
                     <Row>
                         <Col className="mt-5 mx-5" xs={{ order: 'last' }}>
@@ -71,7 +74,10 @@ const DetailsPhone = () => {
                         <Col className="my-3 mb-5">
                             <Container className="text-center">
 
-                                <img className=" my-3" src={phone?.imageFileName} style={{ width: '300px', height: '350px', objectFit: "cover" }} alt="" />
+                                {/* <img className=" my-3" src={phone?.imageFileName[0]} style={{ width: '300px', height: '350px', objectFit: "cover" }} alt="" /> */}
+                                <Carousel controls="false" variant="dark" className="p-5">
+                                    {phone?.imageFileName?.map((image, i) => <Carousel.Item key={i}><InnerImageZoom src={image} alt={i} zoomType="hover" width="300px" hideHint="true" zoomScale="2.3"/></Carousel.Item>)}
+                                </Carousel>
 
                                 <Button variant="warning" className="mt-3 text-center mx-1" style={{ width: '250px' }} onClick={() => openModalBuy()}>Buy
                                     <ShoppingCart fill="black" style={{ width: "20px", height: "20px", marginLeft: "20px" }} />

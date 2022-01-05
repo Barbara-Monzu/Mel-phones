@@ -44,7 +44,7 @@ router.put("/", (req, res, next) => {
 
   const { _id, id, name, manufacturer, description, color, price, imageFileName, screen, processor, ram } = req.body
   const query = { _id, id, name, manufacturer, description, color, price, screen, processor, ram }
-
+  console.log("imageFileName", imageFileName)
   if (imageFileName) query.imageFileName = imageFileName
 
   Phone

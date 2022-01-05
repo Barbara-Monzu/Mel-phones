@@ -70,11 +70,17 @@ const EditForm = (props) => {
         setFormData({ ...formData })
 
         const uploadedData = new FormData()
-        uploadedData.append('imageData', e.target.files[0])
+        console.log("e.target ====>", e.target.files)
+        for (let i = 0; i < e.target.files.length; i++) {
+            uploadedData.append('imageData', e.target.files[i]);
+        }
+        // uploadedData.append('imageData', e.target.files[0])
+        console.log("uploadedData ====>", uploadedData)
 
         uploadsSvc
             .uploadImage(uploadedData)
             .then(res => {
+                console.log("CLOUDINARY",res.data.cloudinary_url)
                 setFormData({ ...formData, imageFileName: res.data.cloudinary_url });
                 setLoading(false)
             })
@@ -123,7 +129,7 @@ const EditForm = (props) => {
                     <Form.Control name="price" value={formData.price} onChange={e => handleChange(e)} type="number" placeholder="Price" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Control name="imageFileName" onChange={(e) => handleFile(e)} type="file" />
+                    <Form.Control name="imageFileName" onChange={(e) => handleFile(e)} type="file" multiple/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Control name="screen" value={formData.screen} onChange={e => handleChange(e)} type="text" placeholder="Screen" />

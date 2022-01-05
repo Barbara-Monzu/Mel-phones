@@ -80,7 +80,7 @@ const ShoppingCart = () => {
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td>{total?.price.toFixed(2)} €</td>
+                                        <td>{total?.price?.toFixed(2)} €</td>
                                     </tr>
                                 </tbody>
 

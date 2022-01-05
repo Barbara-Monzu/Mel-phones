@@ -18,7 +18,7 @@ const phoneModel = new Schema({
   },
 
   imageFileName: {
-    type: String,
+    type: Array,
     default:
       "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_87283644/fee_786_587_png",
   },

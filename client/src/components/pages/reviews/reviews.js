@@ -24,10 +24,7 @@ const ShowReviews = ({ _id }) => {
 
         reviewSvc
             .get(_id)
-            .then(response => {
-                console.log(response.data)
-                setProductReviews(response.data)
-            })
+            .then(response => setProductReviews(response.data))
             .catch(err => console.error(err))
     }
 

@@ -35,13 +35,13 @@ const Catalog = () => {
             .catch(err => console.log(err))
     }
 
-    const paginatioNext = () => {
+    const paginationNext = () => {
         setPage(page + 1)
         console.log("PAGE +", page)
         getCatalog(page)
 
     }
-    const paginatioBack = () => {
+    const paginationBack = () => {
         page === 0 ? getCatalog(page) : setPage(page - 1)
         console.log("PAGE -", page)
         getCatalog(page)
@@ -107,8 +107,8 @@ const Catalog = () => {
                         </Modal.Body>
                     </Modal>
 
-                    <img style={{ cursor: "pointer", transform: "rotate(180deg)", marginRight: "80px" }} src={next} onClick={() => paginatioBack()} alt="more-than" />
-                    <img style={{ cursor: "pointer", margin: "auto, 80px" }} src={next} onClick={() => paginatioNext()} alt="more-than" />
+                    <img style={{ cursor: "pointer", transform: "rotate(180deg)", marginRight: "80px" }} src={next} onClick={() => paginationBack()} alt="more-than" />
+                    <img style={{ cursor: "pointer", margin: "auto, 80px" }} src={next} onClick={() => paginationNext()} alt="more-than" />
 
                 </div>
             }
