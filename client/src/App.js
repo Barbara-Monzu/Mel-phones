@@ -5,6 +5,7 @@ import Footer from "./components/layout/footer";
 import Catalog from "./components/pages/catalog/catalog"
 import DetailsPhone from "./components/pages/details/detailsPhone"
 import ShoppingCart from "./components/pages/shoppingCart/shoppingCart"
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css'
 
 
@@ -30,23 +31,23 @@ function App() {
 
   return (
     <>
-      <Navigation count={countCart} />
-      <div className="general-routes">
-        <AddToCart.Provider value={{ addPhone, shoppingCart, setCountCart }}>
+      <Router>
+        <Navigation count={countCart} />
 
-          <Switch>
-            <Route path="/" exact render={() => <Catalog />} />
-            <Route path="/details/:id" render={() => <DetailsPhone />} />
-            <Route path="/cart" render={() => <ShoppingCart />} />
-          </Switch>
+        <div className="general-routes">
+          <AddToCart.Provider value={{ addPhone, shoppingCart, setCountCart }}>
+            <Switch>
+              <Route path="/" exact render={() => <Catalog />} />
+              <Route path="/details/:id" render={() => <DetailsPhone />} />
+              <Route path="/cart" render={() => <ShoppingCart />} />
+            </Switch>
+          </AddToCart.Provider>
+        </div>
 
-        </AddToCart.Provider>
-      </div>
-
-      <div className="general-footer">
-        <Footer />
-      </div>
-
+        <div className="general-footer">
+          <Footer />
+        </div>
+      </Router>
     </>
   );
 }

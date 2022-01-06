@@ -90,8 +90,9 @@ const Catalog = () => {
                 :
                 <div className="container text-center" >
 
-                    <h3 className=" my-4 mt-3 text-center" ><strong>List of Phones </strong></h3>
+                    <h3 className=" my-4 mt-3 text-center" ><strong>List of Phones</strong></h3>
                     <SearchBar page={page} searchProduct={searchProduct} searchByPrice={searchByPrice} />
+                    {/* <Link to="../../../../public/cv-webdev-Barbara-Monzu.pdf" target="_blank" download>Download</Link> */}
                     <Col as={Button} variant="info" style={{ width: '150px', margin: '20px' }} onClick={() => openModal()}>Create Phone </Col>
 
                     <div className="container-wrap mt-3">
